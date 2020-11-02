@@ -9,18 +9,19 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "event-show",
-    component: EventShow
-  },
-  {
-    path: "/event",
-    name: "event-list",
+    path: '/',
+    name: 'event-list',
     component: EventList
   },
   {
-    path: "/event/create",
-    name: "event-create",
+    path: '/event/:id',
+    name: 'event-show',
+    component: EventShow,
+    props: true
+  },
+  {
+    path: '/event/create',
+    name: 'event-create',
     component: EventCreate
   },
   {
