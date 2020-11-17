@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <NavBar/>
-    <router-view/>
+    <NotificationContainer/>
+    <router-view :key="$route.fullPath"/>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue'
+import NotificationContainer from '@/components/NotificationContainer.vue'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    NotificationContainer
   }
 }
 </script>
@@ -213,14 +216,17 @@ textarea {
 [hidden] {
   display: none;
 }
+.error {
+  border: 1px solid red;
+}
 select {
   width: 100%;
   height: 52px;
   padding: 0 24px 0 10px;
   vertical-align: middle;
   background: #fff
-    url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
-    no-repeat right 12px center;
+  url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
+  no-repeat right 12px center;
   background-size: 8px 10px;
   border: solid 1px rgba(0, 0, 0, 0.4);
   border-radius: 0;
@@ -238,5 +244,14 @@ select:focus::ms-value {
 }
 select::ms-expand {
   opacity: 0;
+}
+.field {
+  margin-bottom: 24px;
+}
+.error {
+  border: 1px solid red;
+}
+.errorMessage {
+  color: red;
 }
 </style>
